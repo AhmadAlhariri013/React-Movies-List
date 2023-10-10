@@ -6,11 +6,15 @@ import {
   IconButton,
 } from "@material-tailwind/react";
 
-const MovieCard = (props) => {
+const MovieCard = ({ props }) => {
   return (
-    <Card className="w-full max-w-[26rem] shadow-lg ">
+    <Card className="w-full max-w-[26rem] shadow-lg bg-[#004080]">
       <CardHeader floated={false} className="h-80">
-        <img src="download.jpg" alt="profile" className="w-full h-full" />
+        <img
+          src={`https://image.tmdb.org/t/p/original/` + props.poster_path}
+          alt={props.title}
+          className="w-full h-full"
+        />
       </CardHeader>
       <IconButton
         size="sm"
@@ -29,18 +33,18 @@ const MovieCard = (props) => {
       </IconButton>
       <CardBody>
         <div className="mb-3 flex items-center justify-between">
-          <Typography variant="h5" color="blue-gray">
-            Natalie Paisley
+          <Typography variant="h5" className=" text-red-500">
+            {props.title}
           </Typography>
           <Typography
             color="blue-gray"
-            className="flex items-center gap-1.5 font-normal"
+            className="flex items-center gap-1.5 font-normal text-white"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="currentColor"
-              className="-mt-0.5 h-5 w-5 text-deep-orange-300"
+              className="-mt-0.5 h-5 w-5 text-[#808000]"
             >
               <path
                 fillRule="evenodd"
@@ -48,15 +52,23 @@ const MovieCard = (props) => {
                 clipRule="evenodd"
               />
             </svg>
-            5.0
+            {props.vote_average}
           </Typography>
         </div>
-        <div className="flex flex-col justify-center items-center">
-          <Typography color="blue-gray" className="font-medium" textGradient>
-            CEO / Co-Founder
+        <div className="flex flex-col justify-center items-center ">
+          <Typography
+            color="blue-gray"
+            className="font-medium text-[#008000]"
+            textGradient
+          >
+            {props.vote_count}
           </Typography>
-          <Typography color="blue-gray" className="font-medium" textGradient>
-            2:30:00
+          <Typography
+            color="blue-gray"
+            className="font-medium text-[#008000]"
+            textGradient
+          >
+            {props.release_date}
           </Typography>
         </div>
       </CardBody>
