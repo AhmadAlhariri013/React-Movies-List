@@ -5,8 +5,8 @@ export function Header({ search }) {
     search(word);
   };
   return (
-    <Navbar className="mx-auto px-4 py-3">
-      <div className="flex flex-wrap items-center justify-between gap-y-4 text-light-blue-500">
+    <Navbar className="mx-auto px-4 py-3 bg-[#004080] border-none">
+      <div className="flex flex-wrap items-center justify-between gap-y-4 text-red-500">
         <Typography
           as="a"
           href="#"
